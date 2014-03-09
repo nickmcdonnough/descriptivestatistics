@@ -1,4 +1,4 @@
-# DescriptiveStatistics
+# DescriptiveStatistics ![Build Status](https://secure.travis-ci.org/nickmcdonnough/descriptivestatistics.png)
 
 A Clojure library for calculating [descriptive statistics](http://en.wikipedia.org/wiki/Descriptive_statistics). This is a port of Derrick Parkhurst's Ruby gem which can be viewed [here](https://github.com/thirtysixthspan/descriptive_statistics).
 ## Usage
