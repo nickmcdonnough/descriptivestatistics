@@ -1,27 +1,32 @@
 (ns descriptivestatistics.core)
 
 (defn sum [x]
-  (reduce + (into [] x)))
+  (reduce + x))
+
+(defn square [x] (* x x))
 
 (defn mean [x]
-  (double (/ (sum (into [] x)) (count x))))
+  (double (/ (sum x) (count x))))
 
 (defn median [x]
   (let [sorted (sort x)
-        l (count x)]
-  (if (= (mod (count x) 2) 0)
-    (/ (+ (- (nth sorted (/ l 2)) 1) (nth sorted (/ l 2))) 2.0)
-    (nth sorted (/ l 2)))))
+        l (count x)
+        i (nth sorted (/ l 2))]
+  (if (even? (count x))
+    (/ (+ (nth sorted (- (/ l 2) 1)) i) 2.0)
+    i)))
 
 (defn mode [x]
   (first (last (sort-by last (frequencies x)))))
 
 (defn ds-range [x]
-  (- (last (sort x)) (first (sort x))))
+  (let [[minn & rest] (sort x)
+        maxx (last rest)]
+  (- maxx minn)))
 
 (defn variance [x]
   (let [y (mean x)]
-  (/ (sum (map #(Math/pow (- y %) 2) x)) (count x))))
+  (/ (sum (map #(square (- y %)) x)) (count x))))
 
 (defn standard-deviation [x]
   (Math/sqrt (variance x)))
