@@ -1,6 +1,6 @@
 # DescriptiveStatistics
 
-A Clojure library for calculating [descriptive statistics](http://en.wikipedia.org/wiki/Descriptive_statistics).
+A Clojure library for calculating [descriptive statistics](http://en.wikipedia.org/wiki/Descriptive_statistics). This is a port of Derrick Parkhurst's Ruby gem which can be viewed [here](https://github.com/thirtysixthspan/descriptive_statistics).
 ## Usage
 ```
 descriptivestatistics.core=> (mean [1 2 3 4])
