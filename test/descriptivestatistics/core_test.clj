@@ -15,6 +15,10 @@
   (testing "median of [1 1 2 3 10 5] is 2.5"
     (is (= (median [1 1 2 3 10 5]) 2.5))))
 
+(deftest median-test2
+  (testing "median of [1 3 10 11] is 6.5"
+    (is (= (median [1 3 10 11]) 6.5))))
+
 (deftest mode-test
   (testing "mode of [1 2 1 5 1 3 2 1] is 1"
     (is (= (mode [1 2 1 5 1 3 2 1]) 1))))
