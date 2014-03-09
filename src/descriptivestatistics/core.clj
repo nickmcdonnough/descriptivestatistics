@@ -9,9 +9,9 @@
 (defn median [x]
   (let [sorted (sort x)
         l (count x)]
-  (cond (zero? (mod (count x) 2))
-          (/ (+ (- (nth sorted (/ l 2)) 1) (nth sorted (/ l 2))) 2.0)
-          :else (nth sorted (/ l 2)))))
+  (if (= (mod (count x) 2) 0)
+    (/ (+ (- (nth sorted (/ l 2)) 1) (nth sorted (/ l 2))) 2.0)
+    (nth sorted (/ l 2)))))
 
 (defn mode [x]
   (first (last (sort-by last (frequencies x)))))
