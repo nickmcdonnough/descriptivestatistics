@@ -13,16 +13,19 @@
         l (count x)
         i (nth sorted (/ l 2))]
   (if (even? (count x))
-    (/ (+ (nth sorted (- (/ l 2) 1)) i) 2.0)
+    (-> l
+      (/ 2)
+      dec
+      (#(nth sorted %))
+      (+ i)
+      (/ 2.0))
     i)))
 
 (defn mode [x]
   (first (last (sort-by last (frequencies x)))))
 
 (defn ds-range [x]
-  (let [[minn & rest] (sort x)
-        maxx (last rest)]
-  (- maxx minn)))
+  (- (reduce max x) (reduce min x)))
 
 (defn variance [x]
   (let [y (mean x)]
