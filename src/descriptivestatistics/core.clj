@@ -12,7 +12,7 @@
   (let [sorted (sort x)
         l (count x)
         i (nth sorted (/ l 2))]
-  (if (even? (count x))
+  (if (even? l)
     (-> l
       (/ 2)
       dec
